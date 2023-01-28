@@ -6,14 +6,12 @@ export const Character = model('Character', new Schema({
     type: String,
     required: true
   },
-  avatar: String,
-  observation: String,
+  avatarPath: String,
+  about: String,
   gender: String,
-  episodes: [{
-    name: String
-  }],
-  category: {
+  category: [{
     type: Schema.Types.ObjectId,
     ref: 'Category'
-  },
+  }],
+  species: String
 }));
