@@ -7,6 +7,7 @@ import { createCategory } from './app/useCases/categories/createCategory';
 import { listCategories } from './app/useCases/categories/listCategories';
 import { createCharacter } from './app/useCases/characters/createCharacter';
 import { listCharacters } from './app/useCases/characters/listCharacters';
+import { listCharactersByCategory } from './app/useCases/categories/listCharactersByCategory';
 
 export const router = Router();
 
@@ -29,6 +30,7 @@ router.get('/characters', listCharacters);
 
 router.post('/characters', upload.single('avatar') ,createCharacter);
 
-router.get('/categories/:categoryId/characters', (req, res) => {
-  res.send('test');
-});
+router.get('/categories/:categoryId/characters', listCharactersByCategory);
+
+
+

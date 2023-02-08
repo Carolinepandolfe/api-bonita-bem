@@ -12,7 +12,7 @@ export async function createCharacter(req: Request, res: Response) {
       about,
       gender,
       avatarPath,
-      category: JSON.parse(category),
+      category: category ? JSON.parse(category) : [],
       species
     });
 
