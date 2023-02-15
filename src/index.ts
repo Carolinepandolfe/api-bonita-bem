@@ -3,12 +3,23 @@ import mongoose from 'mongoose';
 import { router } from './router';
 import path from 'node:path';
 
+import swaggerUi from 'swagger-ui-express';
+import swaggerDocument from '../swagger.json';
+
 
 mongoose.set('strictQuery', false);
 mongoose.connect('mongodb://localhost:27016/IDJ')
   .then(() => {
     const app = express();
     const port = 3001;
+
+    app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+    app.get('/swagger', (request, response) => {
+      return response.sendFile(process.cwd() + '/swagger.json');
+    });
+    app.get('/docs', (request, response) => {
+      return response.sendFile(process.cwd() + '/index.html');
+    });
 
     app.use('/uploads', express.static(path.resolve(__dirname, '..', 'uploads')));
     app.use(express.json());

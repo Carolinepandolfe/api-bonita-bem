@@ -31,6 +31,3 @@ router.get('/characters', listCharacters);
 router.post('/characters', upload.single('avatar') ,createCharacter);
 
 router.get('/categories/:categoryId/characters', listCharactersByCategory);
-
-
-

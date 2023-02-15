@@ -1,0 +1,64 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "API Bonita Bem",
+    "description": "API REST baseada no desenho brasileiro Irmão do Jorel.",
+    "contact": {
+      "name": "Carol Pandolfe",
+      "url": "https://www.linkedin.com/in/carolinepandolfe/"
+    },
+    "x-logo": {
+      "url":"https://user-images.githubusercontent.com/41484638/216194227-566aa92d-0daa-484f-992e-c87c9c0814c8.png"
+    },
+    "version": "1.0.0"
+  },
+  "tags": [
+    {
+      "name": "categoria",
+      "description": "categoria dos personagens"
+    }
+  ],
+  "paths": {
+    "/categories": {
+      "get": {
+        "tags": [
+          "categoria"
+        ],
+        "description": "Listar categorias dos personagens",
+        "responses":{
+          "200":{
+            "content": {
+              "application/json":{
+                "schema":{
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ListCategories"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components":{
+    "schemas": {
+      "ListCategories": {
+        "type": "object",
+        "properties":{
+          "name": {
+            "type": "string",
+            "description": "Nome da categoria",
+            "example": "Família"
+          },
+          "id": {
+            "type": "string",
+            "description": "Id da categoria",
+            "example": "19car9o6li62965578n15ec6"
+          }
+        }
+      }
+    }
+  }
+}
