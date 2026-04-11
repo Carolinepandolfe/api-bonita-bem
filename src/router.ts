@@ -3,11 +3,11 @@ import path from 'node:path';
 import { Router } from 'express';
 import multer from 'multer';
 
-import { createCategory } from './app/useCases/categories/createCategory';
-import { listCategories } from './app/useCases/categories/listCategories';
-import { createCharacter } from './app/useCases/characters/createCharacter';
-import { listCharacters } from './app/useCases/characters/listCharacters';
-import { listCharactersByCategory } from './app/useCases/categories/listCharactersByCategory';
+import { createCategory } from './app/use-cases/categories/createCategory';
+import { listCategories } from './app/use-cases/categories/listCategories';
+import { createCharacter } from './app/use-cases/characters/createCharacter';
+import { listCharacters } from './app/use-cases/characters/listCharacters';
+import { listCharactersByCategory } from './app/use-cases/categories/listCharactersByCategory';
 
 export const router = Router();
 

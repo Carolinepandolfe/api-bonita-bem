@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { Character } from '../../models/Character';
+import { Character } from '../../models/characters';
 
 export async function listCharactersByCategory(req: Request, res: Response) {
   try {

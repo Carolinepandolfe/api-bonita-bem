@@ -1,17 +1,17 @@
+import 'dotenv/config';
 import express from 'express';
 import mongoose from 'mongoose';
 import { router } from './router';
 import path from 'node:path';
-
 import swaggerUi from 'swagger-ui-express';
 import swaggerDocument from '../swagger.json';
 
 
 mongoose.set('strictQuery', false);
-mongoose.connect('mongodb://localhost:27016/IDJ')
+mongoose.connect(process.env.MONGO_URL || 'mongodb://localhost:27016/IDJ')
   .then(() => {
     const app = express();
-    const port = 3001;
+    const port = process.env.PORT;
 
     app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
     app.get('/swagger', (request, response) => {

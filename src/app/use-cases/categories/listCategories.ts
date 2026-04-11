@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { Category } from '../../models/Category';
+import { Category } from '../../models/categories';
 
 export async function listCategories(req: Request, res: Response) {
   const categories = await Category.find();
