@@ -1,15 +1,15 @@
-import { Request, Response } from 'express';
-import { Character } from '../../models/characters';
+import { Request, Response } from "express";
+import { Character } from "../../models/characters";
 
 export async function listCharactersByCategory(req: Request, res: Response) {
   try {
-    const  { categoryId } = req.params;
+    const { categoryId } = req.params;
 
-    const characters = await Character.find().where('category').equals(categoryId);
-
+    const characters = await Character.find({ category: categoryId }).populate(
+      "category",
+    );
     res.json(characters);
-
-  } catch(error) {
+  } catch (error) {
     console.log(error);
     res.sendStatus(500);
   }

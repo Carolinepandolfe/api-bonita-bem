@@ -1,6 +1,5 @@
-
-import { Request, Response } from 'express';
-import { Character } from '../../models/characters';
+import { Request, Response } from "express";
+import { Character } from "../../models/characters";
 
 export async function createCharacter(req: Request, res: Response) {
   try {
@@ -13,14 +12,12 @@ export async function createCharacter(req: Request, res: Response) {
       gender,
       avatarPath,
       category: category ? JSON.parse(category) : [],
-      species
+      species,
     });
 
     res.status(201).json(character);
-
-  } catch(error) {
+  } catch (error) {
     console.log(error);
     res.sendStatus(500);
   }
-
 }

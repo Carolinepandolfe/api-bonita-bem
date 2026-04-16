@@ -1,17 +1,15 @@
-import { Request, Response } from 'express';
-import { Category } from '../../models/categories';
+import { Request, Response } from "express";
+import { Category } from "../../models/categories";
 
 export async function createCategory(req: Request, res: Response) {
   try {
-
-    const {name} = req.body;
+    const { name } = req.body;
 
     const category = await Category.create({ name });
 
     res.status(201).json(category);
-  } catch(error) {
+  } catch (error) {
     console.log(error);
     res.sendStatus(500);
   }
-
 }
